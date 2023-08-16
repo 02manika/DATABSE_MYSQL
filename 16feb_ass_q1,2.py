@@ -1,0 +1,43 @@
+# Q1. What is a database? Differentiate between SQL and NoSQL databases.
+#Database is an organised collection of data that is stored in a computer system.
+#SQL stands for STANDARD QUERY LANGUAGE and NOSQL stands for  NOT ONLY  STANDARD QUERY LANGUAGE. SQL is RDBMS and NOSQL is distributed dbms.
+
+
+
+#Q2. What is DDL? Explain why CREATE, DROP, ALTER, and TRUNCATE are used with an example.
+#DDL stads for data definition language. It describes the data and its relationship in a database.
+import mysql.connector
+mydb = mysql.connector.connect(
+  host="localhost",
+  user="abc",
+  password="password"
+)
+mycursor = mydb.cursor()
+
+#mycursor.execute("CREATE DATABASE if not exists test3")    #create the database
+
+#mycursor.execute("CREATE TABLE if not exists test3.test_table(R_NO INT ,NAME VARCHAR(50) ,MARKS FLOAT ,P_NO INT)")  #create the table
+
+'''mycursor.execute("insert into test3.test_table values(1 , 'MANIKA' , 45.7 , 2345678)")
+mycursor.execute("insert into test3.test_table values(2 , 'GEETA', 45.9 , 3456899)")         #values inserted
+mycursor.execute("insert into test3.test_table values(3 , 'SITA' , 48.8 ,9876543 )")
+mycursor.execute("insert into test3.test_table values(4 , 'RITA' , 45.9 ,9873465 )")
+mycursor.execute("insert into test3.test_table values(5 , 'MITA' ,45.9 ,56327368)")
+
+mydb.commit()
+
+mycursor.execute("select NAME from test3.test_table")          #executing the query
+
+for i in mycursor.fetchall():
+    print(i) '''
+
+#mycursor.execute("ALTER TABLE test3.test_table ADD Email varchar(255)");      #alter command adds columns
+
+'''mycursor.execute("TRUNCATE TABLE test3.test_table")        #truncate command delete entries of table 
+mycursor.execute("select NAME from test3.test_table")          #executing the query
+
+for i in mycursor.fetchall():
+    print(i) '''
+
+mycursor.execute("DROP TABLE test3.test_table")          #drop command deletes the table 
+mydb.close()
